@@ -10,6 +10,7 @@ class DemoThread(threading.Thread):
         for i in self.arr:
             print("i", i)
 
+
 array = ["11", "232", "3232344", "888"]
 thread = DemoThread(array)
 thread.start()
