@@ -1,16 +1,7 @@
 #!/usr/bin/python
-import numpy as np
-import pandas as pd
-import os
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.datasets import make_classification, make_blobs
-
-from sklearn.metrics import confusion_matrix
-from matplotlib.colors import ListedColormap
-
 from sklearn.datasets import load_breast_cancer
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
 
 # Load the cancer data
 (X_cancer, y_cancer) = load_breast_cancer(return_X_y=True)
