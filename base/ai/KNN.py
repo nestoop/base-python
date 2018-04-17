@@ -2,13 +2,11 @@
 """
 K-近邻算法
 """
-
+import sys
 from numpy import *
-import operator
-
 
 def createDataSet():
-    groups = array([[1, 1.1], [2, 3.1], [9, 5.1],  [6, 7.1]])
+    groups = array([[1, 1.1], [2, 3.1], [9, 5.1], [6, 7.1]])
     labels = ['A', 'B', "A", "B"]
     return groups, labels
 
