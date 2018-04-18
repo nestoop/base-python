@@ -1,15 +1,13 @@
 #!/usr/bin/python
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 x = np.linspace(-10, 10, 100)
 
 print("x:\n".format(x))
 
-y = np.sin(x)
-
 print("y:\n".format(y))
 
-# plt.plot(x, y, marker="x")
 
 
 
