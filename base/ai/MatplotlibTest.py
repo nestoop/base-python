@@ -1,13 +1,16 @@
 #!/usr/bin/python
 import numpy as np
-from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
-x = np.linspace(-10, 10, 100)
+# create a array
+x = np.arange(0, 5, 0.1)
+y = np.sin(x)
 
-print("x:\n".format(x))
-
-print("y:\n".format(y))
-
+example = plt.plot(x, y)
+example = plt.title("x: array Y sin method")
+example = plt.xlabel("X")
+example = plt.ylabel("Sin")
+example.figure.savefig("example", bbox_inches='tight')
 
 
 

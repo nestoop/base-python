@@ -67,7 +67,7 @@ print("LinearRegression Lasso alpha=0.0001 Train set score: {:.2f}".format(lasso
 print("LinearRegression Lasso alpha=0.0001 Test set score: {:.2f}".format(lasso_00001.score(X_test, y_test)))
 print("LinearRegression Lasso alpha=0.0001 Number of features used: {:.2f}".format(np.sum(lasso_00001.coef_ != 0)))
 
-# plain and lassoExample.png
+# plain
 lassoExample = plt.plot(lasso.coef_, 's', label="lasso alpha=1")
 lassoExample = plt.plot(lasso_001.coef_, '^', label="lasso alpha=0.01")
 lassoExample = plt.plot(lasso_00001.coef_, 'v', label="lasso alpha=0.0001")
