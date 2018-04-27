@@ -3,6 +3,8 @@ from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import export_graphviz
+import matplotlib.pyplot as plt
+import numpy as np
 import graphviz
 import os
 
@@ -14,6 +16,7 @@ tree.fit(X_train, y_train)
 
 print("Accuracy train set : {:.3f}".format(tree.score(X_train, y_train)))
 print("Accuracy test set : {:.3f}".format(tree.score(X_test, y_test)))
+print("Features importance : {}".format(tree.feature_importances_))
 
 tree4 = DecisionTreeClassifier(max_depth=4, random_state=0)
 tree4.fit(X_train, y_train)
@@ -39,3 +42,9 @@ graphviz.Source(dot_graph)
 
 os.system("dot -Tpng tree.dot -o tree.png")
 os.system("dot -Tpng tree4.dot -o tree4.png")
+
+n_features = cancer.data.shape[1]
+plt.barh(range(n_features), tree.feature_importances_, align="center")
+plt.yticks(np.arange(n_features), cancer.feature_names)
+plt.xlabel("Feature Importance")
+plt.ylabel("Feature")
