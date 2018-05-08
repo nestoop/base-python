@@ -15,7 +15,7 @@ for target in np.unique(people.target):
 
 X_people = people.data[mask]
 y_people = people.target[mask]
-X_people = X_people/255
+X_people = X_people / 255
 
 X_train, X_test, y_train, y_test = train_test_split(X_people, y_people, stratify=y_people, random_state=0)
 knn = KNeighborsClassifier(n_neighbors=1)
@@ -25,12 +25,27 @@ print("Test score of 1-nn:{:2f}".format(knn.score(X_test, y_test)))
 
 nmf = NMF(n_components=15, random_state=0)
 nmf.fit(X_train)
-X_train_nmf=nmf.transform(X_train)
-X_test_nmf=nmf.transform(X_test)
-
+X_train_nmf = nmf.transform(X_train)
+X_test_nmf = nmf.transform(X_test)
 
 fix, axes = plt.subplots(3, 5, figsize=(15, 12), subplot_kw={'xticks': (), 'yticks': ()})
 
 for i, (component, ax) in enumerate(zip(nmf.components_, axes.ravel())):
     ax.imshow(component.reshape(image_shape), cmap='viridis')
     ax.set_title("{}.component".format(i))
+
+compn = 3
+inds = np.argsort(X_train_nmf[:, compn])[::-1]
+fig3, axes = plt.subplots(2, 5, figsize=(15, 8), subplot_kw={'xticks': (), 'yticks': ()})
+
+for i, (ind, ax) in enumerate(zip(inds, axes.ravel())):
+    ax.imshow(X_train[ind].reshape(image_shape))
+
+
+
+compn7 = 7
+inds7 = np.argsort(X_train_nmf[:, compn7])[::-1]
+fig3, axes = plt.subplots(2, 5, figsize=(15, 8), subplot_kw={'xticks': (), 'yticks': ()})
+
+for i, (ind, ax) in enumerate(zip(inds7, axes.ravel())):
+    ax.imshow(X_train[ind].reshape(image_shape))
